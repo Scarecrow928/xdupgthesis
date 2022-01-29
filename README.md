@@ -1,4 +1,4 @@
-<p align="center"><a href="https://github.com/note286/xdupgthesis"><img src="logo.png"></a></p>
+<p align="center"><a href="https://github.com/note286/xdupgthesis"><img src="logo.svg" height="50px"></a></p>
 <p align="center">
 <a href="https://github.com/note286/xdupgthesis/blob/main/LICENSE"><img src="https://img.shields.io/github/license/note286/xdupgthesis"></a>
 <a href="https://github.com/note286/xdupgthesis"><img src="https://img.shields.io/github/stars/note286/xdupgthesis"></a>
@@ -39,6 +39,7 @@
     - [TeXPage编译](#texpage编译)
   - [文档类可选参数](#文档类可选参数)
   - [内置宏包](#内置宏包)
+  - [英文学位论文](#英文学位论文)
   - [数学字体切换开关](#数学字体切换开关)
   - [数学符号](#数学符号)
   - [参考文献引用](#参考文献引用)
@@ -154,6 +155,10 @@ dvipdfmx templet
 
 ## 卸载与安装
 
+MiKTeX用户需要额外安装[Perl](https://strawberryperl.com/)以便于使用latexmk，可通过运行`perl -v`来检查是否已安装。此外，MiKTeX用户自行打开MiKTeX控制台更新所有包。
+
+下面主要介绍TeX Live/MacTeX。
+
 Windows和GNU/Linux平台使用[TeX Live](https://www.tug.org/texlive/)，macOS平台使用[MacTeX](https://www.tug.org/mactex/)，跨版本升级均需要卸载旧版。
 
 Windows平台卸载方法为管理员身份直接运行`C:\texlive\2021\tlpkg\installer\uninst.bat`，不同版本和安装位置请按需修改目录，更多介绍请参考[install-latex-guide-zh-cn.pdf](https://mirrors.ustc.edu.cn/CTAN/info/install-latex-guide-zh-cn/install-latex-guide-zh-cn.pdf)第1.2节，GNU/Linux平台卸载方法请参考[install-latex-guide-zh-cn.pdf](https://mirrors.ustc.edu.cn/CTAN/info/install-latex-guide-zh-cn/install-latex-guide-zh-cn.pdf)第2.2节，macOS上卸载方法请参考[Uninstalling MacTeX](https://www.tug.org/mactex/uninstalling.html)。
@@ -257,7 +262,9 @@ sudo cp simhei.ttf simkai.ttf simsun.ttc times.ttf timesbd.ttf timesbi.ttf times
 
 ## 下载与编辑
 
-请点击[下载](https://github.com/note286/xdupgthesis/archive/refs/heads/main.zip)压缩包或[克隆](x-github-client://openRepo/https://github.com/note286/xdupgthesis)该仓库，用户可直接修改`tex`、`bib`和`cfg`等类型文件来进行论文的撰写。具体来说，用户通过编辑`xdupgthesis.tex`、`xdupgthesis.bib`和`chapters`文件夹下文件来撰写论文内容，通过修改`xdupgthesis.cfg`内容来更改论文信息或者个人信息。此外，`xdupgthesis.cls`和`xdupgthesis.def`文件请不要修改。
+请点击[下载](https://github.com/note286/xdupgthesis/archive/refs/heads/main.zip)压缩包或[克隆](x-github-client://openRepo/https://github.com/note286/xdupgthesis)该仓库，当用户访问GitHub不便时，可以选择从国内GitHub镜像网站点击[下载](https://shrill-pond-3e81.hunsh.workers.dev/https://github.com/note286/xdupgthesis/archive/refs/heads/main.zip)压缩包。
+
+用户可直接修改`tex`、`bib`和`cfg`等类型文件来进行论文的撰写。具体来说，用户通过编辑`xdupgthesis.tex`、`xdupgthesis.bib`和`chapters`文件夹下文件来撰写论文内容，通过修改`xdupgthesis.cfg`内容来更改论文信息或者个人信息。此外，`xdupgthesis.cls`和`xdupgthesis.def`文件请不要修改。
 
 其中，Overleaf用户注意，由于Overleaf的[限制](https://www.overleaf.com/learn/how-to/Uploading_a_project)：
 
@@ -437,6 +444,7 @@ Texmaker内置了PDF查看器，支持正向同步和反向同步功能，具体
 - `frame`，详见[显示边框](#显示边框)
 - `mf=tgtm`或`mf=cm`，详见[数学字体切换开关](#数学字体切换开关)
 - `sign`，详见[签名图像](#签名图像)
+- `en`，详见[英文学位论文](#英文学位论文)
 
 以上参数功能相互独立，均可任意组合使用，选项之间无先后顺序之分，多个选项之间使用逗号隔开，例如：
 
@@ -471,7 +479,8 @@ Texmaker内置了PDF查看器，支持正向同步和反向同步功能，具体
 - hyperref
 - ifpdf
 - ifthen
-- ltablex
+- indentfirst
+- longtable
 - makecell
 - multirow
 - natbib
@@ -487,6 +496,99 @@ Texmaker内置了PDF查看器，支持正向同步和反向同步功能，具体
 - xeCJKfntef
 - xspace
 - xurl
+
+## 英文学位论文
+
+在[西安电子科技大学申请学术学位博士学位相关资料-研究生院/研究生工作部-西安电子科技大学](https://gr.xidian.edu.cn/info/1047/7160.htm)下方有附件[西安电子科技大学申请博士学位相关资料-2021年3月更新.zip](https://gr.xidian.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1281831001&wbfileid=4717167)，该压缩包内有`3-4西安电子科技大学英文学位论文撰写相关规定.doc`，其SHA-1值为：
+
+> 0DF4B42F4BB1B4B6889D51C83A2C9A75B0C5512D
+
+其内有如下描述：
+
+> 英文学位论文撰写的总体要求遵照我校研究生学位论文撰写要求执行，除封面、中文题名页、学位论文独创性声明和关于论文使用授权的说明、中文摘要、中文目录页和中文参考文献用中文撰写外，其他内容一律用英文撰写。
+>
+> 学位论文的封面用中文填写，用研究生院统一印制的纸张打印，不得手写。
+>
+> 题名页包括英文题名页和中文题名页，英文题名页在前，中文题名页在后，填写要求遵照我校研究生学位论文撰写要求执行。
+>
+> 声明页用中文版本，不用翻译成英文。
+>
+> 摘要包括英文摘要和中文摘要，英文摘要在前，中文摘要在后。除此之外，在提交送审学位论文时，博士学位论文必须附加一份3000～5000字左右的详细中文摘要，硕士学位论文必须附加一份1500～3000字左右的详细中文摘要。详细中文摘要与学位论文分开装订，供评审专家参考。
+>
+> 目录包括中文目录页和英文目录页，英文目录页在前，中文目录页在后。
+>
+> 正文全部用英文撰写，撰写要求遵照我校研究生学位论文撰写要求执行。
+>
+> 页眉的“西安电子科技大学博士/硕士学位论文”统一翻译成：Doctoral Dissertation of XIDIAN UNIVERSITY/Master Thesis of XIDIAN UNIVERSITY。
+>
+> 英文字体统一用Times New Roman，字号遵照我校研究生学位论文撰写要求执行。
+
+具体要求整理如下：
+
+- 中文撰写内容及要求
+
+  - 封面
+    - 中文填写，用研究生院统一印制的纸张打印，不得手写
+  - 中文题名页
+    - 英文题名页在前，中文题名页在后
+  - 学位论文独创性声明和关于论文使用授权的说明
+    - 声明页用中文版本，不用翻译成英文。
+  - 中文摘要
+    - 英文摘要在前，中文摘要在后
+    - 在提交送审学位论文时，博士学位论文必须附加一份3000～5000字左右的详细中文摘要，硕士学位论文必须附加一份1500～3000字左右的详细中文摘要。详细中文摘要与学位论文分开装订，供评审专家参考。
+  - 中文目录页
+    - 英文目录页在前，中文目录页在后
+
+  - 中文参考文献
+
+- 英文撰写内容及要求
+
+  - 英文提名页
+    - 英文题名页在前，中文题名页在后
+  - 正文
+    - 正文全部用英文撰写
+  - 页眉
+    - 页眉的“西安电子科技大学博士/硕士学位论文”统一翻译成：Doctoral Dissertation of XIDIAN UNIVERSITY/Master Thesis of XIDIAN UNIVERSITY
+  - 英文摘要
+    - 英文摘要在前，中文摘要在后
+  - 英文目录页
+    - 英文目录页在前，中文目录页在后
+
+如果用户想要撰写英文学位论文，需要在`xdupgthesis.tex`中为`en`参数（English），即将
+
+```latex
+\documentclass{xdupgthesis}
+```
+
+改为
+
+```latex
+\documentclass[en]{xdupgthesis}
+```
+
+此外，需要注意：
+
+- 用户需要手动将英文摘要环境移动至中文摘要前面
+
+- 为生成中文目录页，在`\chapter{}`、`\section{}`、`\subsection{}`和`\subsubsection{}`后添加`\zhchapter{}`、`\zhsection{}`、`\zhsubsection{}`和`\zhsubsubsection{}`，例如：
+
+  ```latex
+  \chapter{Introduction}
+  \zhchapter{绪论}
+  \section{Background}
+  \zhsection{y}
+  ```
+
+- 用户自行替换作者简介页内的标题，提供如下翻译供参考：
+
+  - 基本情况 Brief Introduction
+  - 教育背景 Academic Experience
+  - 攻读硕士学位期间的研究成果 Research Production during Graduate Study
+  - 发表学术论文 Publications
+  - 申请（授权）专利 Applied (Authorized) Patent
+  - 参与科研项目及获奖 Projects and Awards
+
+- 详细中文摘要与学位论文分开装订，供评审专家参考
 
 ## 数学字体切换开关
 
@@ -735,7 +837,7 @@ $\text{被减数} - \text{减数} = \text{差}$
 
 ## 表格
 
-从模板示例中可以看出表中的内容字号为五号，本模板已经重定义了三种常见的表格环境的字号，包括`tabular`、`tabularx`和`tabulary`环境，对于这三种表格环境，用户无需手动指定字号。本模板内置了部分示例供参考。
+从模板示例中可以看出表中的内容字号为五号，本模板已经重定义了4种常见的表格环境的字号，包括`tabular`、`tabularx`、`tabulary`和`longtable`环境，对于这4种表格环境，用户无需手动指定字号。本模板内置了部分示例供参考，更建议用户参考[lshort-zh-cn.pdf](https://mirrors.ustc.edu.cn/CTAN/info/lshort/chinese/lshort-zh-cn.pdf)第3.6节中关于表格的描述。
 
 此外，对于`table`浮动体，不建议使用任何位置参数，让LaTeX引擎将浮动体自动放置在合适的位置，具体原因可见[浮动体位置](#浮动体位置)。
 
@@ -861,27 +963,21 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 ## 符号对照表
 
-模板中默认为`lX`，其含义为全部左对齐，符号列根据内容自动设置宽度，且只占据一行不自动换行，符号名称占据剩下的页面宽度，会自动换行，用户无需手动插入换行符干预。更多设置请用户参考[缩略语对照表](#缩略语对照表)介绍进行设置。
+符号对照表环境`symbollist`提供了一个参数，用于调节列宽，模板中默认为`lp{7cm}`，其含义为全部左对齐，符号列根据内容自动设置宽度，且只占据一行不自动换行，符号名称列宽度为`7cm`，会自动换行，用户无需手动插入换行符干预。符号对照表支持自动换页，无需用户手动干预。更多设置请用户参考[缩略语对照表](#缩略语对照表)介绍进行设置。
 
 ## 缩略语对照表
 
-缩略语对照表环境`abbreviationlist`提供了一个参数，用于调节列宽，模板中默认为`lXX`，其含义为全部左对齐，缩略语根据内容自动设置宽度，且只占据一行不自动换行，英文全称与中文对照平分剩下的页面宽度，会自动换行，用户无需手动插入换行符干预。
+缩略语对照表环境`abbreviationlist`提供了一个参数，用于调节列宽，模板中默认为`lp{6cm}p{4cm}`，其含义为全部左对齐，缩略语列根据内容自动设置宽度，且只占据一行不自动换行，英文全称列宽度为`6cm`，中文对照列宽度为`4cm`，会自动换行，用户无需手动插入换行符干预。其中`p{}`内的长度值可以自行视情况设置。如果需要更多自定义的参数，用户可以参考[lshort-zh-cn.pdf](https://mirrors.ustc.edu.cn/CTAN/info/lshort/chinese/lshort-zh-cn.pdf)第3.6节中关于LaTeX表格列格式的描述。此外，缩略语对照表支持自动换页，无需用户手动干预。
 
-用户如果想要手动指定宽度，可以将模板中默认的`lXX`改为`p{7.5em}p{10.5em}X`，其含义为第一列为`7.5em`，第二列为`10.5em`，第三列占据剩下的页面宽度，会自动换行，用户无需手动插入换行符干预。如果需要更多自定义的参数，用户可以参考[tabularx](https://mirrors.ustc.edu.cn/CTAN/macros/latex/required/tools/tabularx.pdf)宏包手册。
-
-注意！一定要有一列的参数是`X`，其余列参数可以为`p{}`或者`l`。一般建议最后一列为`X`，其余列参数为`p{}`或者`l`。对于三列的，常见的有`p{7.5em}p{10.5em}X`和`llX`，对于两列的，常见的有`p{7.5em}X`和`lX`，其中`p{}`内的长度值可以自行视情况设置。
-
-如果用户想要手动插入换行符，请将需要插入换行符的单元格放入`\makecell[l]{}`命令中，例如：
+如果用户想要手动插入换行符，请将需要插入换行符的单元格放入`\makecell[tl]{}`命令中，例如：
 
 ```latex
-\begin{abbreviationlist}{lXX}
-缩略语 & 英文全称 & 中文对照\\
-XXX & \makecell[l]{手动换行手动换行\\手动换行} & 自动换行自动换行自动换行自动换行\\
+\begin{abbreviationlist}{lp{6cm}p{4cm}}
+XXX & XXX & XXX\\
+XXX & \makecell[tl]{手动换行手动换行\\手动换行} & 自动换行自动换行自动换行自动换行\\
 XXX & XXX & XXX\\
 \end{abbreviationlist}
 ```
-
-此外，缩略语对照表支持自动换页，无需用户手动干预。
 
 ## 附录
 
@@ -1713,6 +1809,9 @@ LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <10.53937> not available
 
 # 版本记录
 
+- `2022-01-21` [`v4.0.0`](https://github.com/note286/xdupgthesis/releases/tag/v4.0.0) 修复ltablex导致的正文或图表超出下方页边距问题。
+- `2022-01-20` [`v3.1.1`](https://github.com/note286/xdupgthesis/releases/tag/v3.1.1) 修复旧版gbt7714兼容问题。
+- `2022-01-19` [`v3.1.0`](https://github.com/note286/xdupgthesis/releases/tag/v3.1.0) 支持英文学位论文。
 - `2022-01-10` [`v3.0.0`](https://github.com/note286/xdupgthesis/releases/tag/v3.0.0) 支持独创性声明和使用授权页插入电子版日期。
 - `2022-01-06` [`v2.0.0`](https://github.com/note286/xdupgthesis/releases/tag/v2.0.0) 支持插入签名图像。
 - `2022-01-05` [`v1.25.0`](https://github.com/note286/xdupgthesis/releases/tag/v1.25.0) 升级algpseudocode宏包为algpseudocodex宏包。
